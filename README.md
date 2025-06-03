@@ -8,7 +8,7 @@ Note: The playlist json format is still in flux as I figure things out.
 
 ## How to Install
 
-To use this plugin download the DLL and place it in your plugin directory. Once launched you should find in your data directory a folder called "SmartererPlaylist". Your JSON files describing a playlist go in here.
+To use this plugin download the DLL and place it in your plugin directory. Once launched you should find in your data directory a folder called "SmarterPlaylist". Your JSON files describing a playlist go in here.
 
 ## Configuration
 
