@@ -1,0 +1,15 @@
+# Allows for the definition of PR and Issue /commands
+name: '📟 Slash Command Dispatcher'
+
+permissions: read-all
+
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  call:
+    uses: jellyfin/jellyfin-meta-plugins/.github/workflows/command-dispatch.yaml@master
+    secrets:
+      token: .

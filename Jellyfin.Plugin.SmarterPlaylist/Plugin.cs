@@ -9,10 +9,7 @@ namespace Jellyfin.Plugin.SmarterPlaylist
 {
     public class Plugin : BasePlugin<BasePluginConfiguration>, IHasWebPages
     {
-        public Plugin(
-            IApplicationPaths applicationPaths,
-            IXmlSerializer xmlSerializer
-        ) : base(applicationPaths, xmlSerializer)
+        public Plugin(IApplicationPaths applicationPaths,  IXmlSerializer xmlSerializer) : base(applicationPaths, xmlSerializer)
         {
             Instance = this;
         }
@@ -32,7 +29,6 @@ namespace Jellyfin.Plugin.SmarterPlaylist
             [
                 new PluginPageInfo
                 {
-                    //Name = "SmarterPlaylist.html",
                     //EmbeddedResourcePath = string.Format("{0}.Configuration.SmarterPlaylist.html", GetType().Namespace),
                 }
             ];

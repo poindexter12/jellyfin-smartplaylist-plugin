@@ -1,14 +1,14 @@
-# Smart Playlist Plugin for Jellyfin
+# Smarter Playlist Plugin for Jellyfin
 
 ## Overview
 
-This is an attempt to make a smart playlist similar to what iTunes, Plex, and other media players have. It is still in early development and has some limitations which will not be able to be resolved until Jellyfin impliments some features.
+This is an attempt to make a smarter playlist similar to what iTunes, Plex, and other media players have. It is still in early development and has some limitations which will not be able to be resolved until Jellyfin impliments some features.
 
 Note: The playlist json format is still in flux as I figure things out.
 
 ## How to Install
 
-To use this plugin download the DLL and place it in your plugin directory. Once launched you should find in your data directory a folder called "SmarterPlaylist". Your JSON files describing a playlist go in here.
+To use this plugin download the DLL and place it in your plugin directory. Once launched you should find in your data directory a folder called "SmartererPlaylist". Your JSON files describing a playlist go in here.
 
 ## Configuration
 
@@ -66,7 +66,7 @@ To create a new playlist, create a json file in this directory having a format s
   - String operators: Equals, StartsWith, EndsWith, Contains.
   - Regex operators: MatchRegex, NotMatchRegex.
 
-- MemberName: This is a reference to the properties in [Operand](https://github.com/ankenyr/jellyfin-SmarterPlaylist-plugin/blob/master/Jellyfin.Plugin.SmarterPlaylist/QueryEngine/Operand.cs "Operand"). You set this string to one of the property names to reference what you wish to filter on.
+- MemberName: This is a reference to the properties in [Operand](https://github.com/poindexter12/jellyfin-plugin-smarterplaylist/blob/master/Jellyfin.Plugin.SmarterPlaylist/QueryEngine/Operand.cs "Operand"). You set this string to one of the property names to reference what you wish to filter on.
 - Operator: An operation used to compare the TargetValue to the property of each piece of media. The above example would match anything with the director set as CGP Grey with a Premiere Date less than 2020/07/01
 - Target Value: The value to be compared to. Most things are converted into strings, booleans, or numbers. A date in the above example is converted to seconds since epoch.
 
