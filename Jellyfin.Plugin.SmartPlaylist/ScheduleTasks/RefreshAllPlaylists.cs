@@ -19,8 +19,7 @@ namespace Jellyfin.Plugin.SmartPlaylist.ScheduleTasks
 {
     public class RefreshAllPlaylists : IScheduledTask, IConfigurableScheduledTask
     {
-        public static readonly BaseItemKind[] SupportedItem =
-            { BaseItemKind.Audio, BaseItemKind.Episode, BaseItemKind.Movie };
+        public static readonly BaseItemKind[] SupportedItem = [ BaseItemKind.Audio, BaseItemKind.Episode, BaseItemKind. Movie ];
 
         private readonly IFileSystem _fileSystem;
         private readonly ILibraryManager _libraryManager;

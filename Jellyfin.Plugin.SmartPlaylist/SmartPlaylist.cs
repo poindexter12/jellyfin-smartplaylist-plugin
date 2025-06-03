@@ -22,23 +22,15 @@ namespace Jellyfin.Plugin.SmartPlaylist
             else
                 MaxItems = 1000;
 
-            switch (dto.Order.Name)
+            Order = dto.Order.Name switch
             {
                 //ToDo It would be nice to move to automapper and create a better way to map this.
                 // Could also use DefinedLimitOrders from emby version.
-                case "NoOrder":
-                    Order = new NoOrder();
-                    break;
-                case "Release Date Ascending":
-                    Order = new PremiereDateOrder();
-                    break;
-                case "Release Date Descending":
-                    Order = new PremiereDateOrderDesc();
-                    break;
-                default:
-                    Order = new NoOrder();
-                    break;
-            }
+                "NoOrder" => new NoOrder(),
+                "Release Date Ascending" => new PremiereDateOrder(),
+                "Release Date Descending" => new PremiereDateOrderDesc(),
+                _ => new NoOrder(),
+            };
         }
 
         public string Id { get; set; }

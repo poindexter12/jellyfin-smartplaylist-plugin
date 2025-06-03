@@ -18,24 +18,24 @@ namespace Jellyfin.Plugin.SmartPlaylist
         }
 
 
-        public override Guid Id => Guid.Parse("3C96F5BC-4182-4B86-B05D-F730F2611E45");
+        public override Guid Id => Guid.Parse("3311dfd2-fe3b-4367-a3f0-0dcea5ba07cd");
 
         public override string Name => "SmartPlaylist";
 
-        public override string Description => "Allow to define smart playlist rules.";
+        public override string Description => "SmartPlaylist is a Jellyfin plugin that allows you to create dynamic playlists based on various criteria and conditions.";
 
         public static Plugin Instance { get; private set; }
 
         public IEnumerable<PluginPageInfo> GetPages()
         {
-            return new[]
-            {
+            return
+            [
                 new PluginPageInfo
                 {
                     //Name = "smartplaylist.html",
                     //EmbeddedResourcePath = string.Format("{0}.Configuration.smartplaylist.html", GetType().Namespace),
                 }
-            };
+            ];
         }
     }
 }

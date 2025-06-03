@@ -15,15 +15,9 @@ namespace Jellyfin.Plugin.SmartPlaylist
         void Delete(Guid userId, string smartPlaylistId);
     }
 
-    public class SmartPlaylistStore : ISmartPlaylistStore
+    public class SmartPlaylistStore(ISmartPlaylistFileSystem fileSystem) : ISmartPlaylistStore
     {
-        private readonly ISmartPlaylistFileSystem _fileSystem;
-
-        public SmartPlaylistStore(ISmartPlaylistFileSystem fileSystem)
-        {
-            _fileSystem = fileSystem;
-        }
-
+        private readonly ISmartPlaylistFileSystem _fileSystem = fileSystem;
 
         public async Task<SmartPlaylistDto> GetSmartPlaylistAsync(Guid smartPlaylistId)
         {
@@ -34,8 +28,7 @@ namespace Jellyfin.Plugin.SmartPlaylist
 
         public async Task<SmartPlaylistDto[]> LoadPlaylistsAsync(Guid userId)
         {
-            var deserializeTasks = _fileSystem.GetSmartPlaylistFilePaths(userId.ToString()).Select(LoadPlaylistAsync)
-                .ToArray();
+            var deserializeTasks = _fileSystem.GetSmartPlaylistFilePaths(userId.ToString()).Select(LoadPlaylistAsync).ToArray();
 
             await Task.WhenAll(deserializeTasks).ConfigureAwait(false);
 
@@ -48,7 +41,7 @@ namespace Jellyfin.Plugin.SmartPlaylist
 
             await Task.WhenAll(deserializeTasks).ConfigureAwait(false);
 
-            return deserializeTasks.Select(x => x.Result).ToArray();
+            return [.. deserializeTasks.Select(x => x.Result)];
         }
 
         public async Task SaveAsync(SmartPlaylistDto smartPlaylist)
