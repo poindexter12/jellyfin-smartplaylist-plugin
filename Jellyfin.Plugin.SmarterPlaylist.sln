@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jellyfin.Plugin.SmarterPlaylist", "Jellyfin.Plugin.SmarterPlaylist\Jellyfin.Plugin.SmarterPlaylist.csproj", "{EFE3257F-C3D6-4D49-AF40-486CBABAF49C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{C240ECDA-10A6-42DE-A374-F89EC473498F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jellyfin.Plugin.SmarterPlaylist.Tests", "Jellyfin.Plugin.SmarterPlaylist.Tests\Jellyfin.Plugin.SmarterPlaylist.Tests.csproj", "{C240ECDA-10A6-42DE-A374-F89EC473498F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
