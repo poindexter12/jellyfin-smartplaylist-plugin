@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Jellyfin.Plugin.SmartPlaylist.QueryEngine;
+using Jellyfin.Plugin.SmarterPlaylist.QueryEngine;
 
-namespace Jellyfin.Plugin.SmartPlaylist
+namespace Jellyfin.Plugin.SmarterPlaylist
 {
     [Serializable]
-    public class SmartPlaylistDto
+    public class SmarterPlaylistDto
     {
         public string Id { get; set; }
         public string Name { get; set; }

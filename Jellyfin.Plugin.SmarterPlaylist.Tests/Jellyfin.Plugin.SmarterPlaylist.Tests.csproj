@@ -20,7 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Jellyfin.Plugin.SmartPlaylist\Jellyfin.Plugin.SmartPlaylist.csproj" />
+		<ProjectReference Include="..\Jellyfin.Plugin.SmarterPlaylist\Jellyfin.Plugin.SmarterPlaylist.csproj" />
 	</ItemGroup>
 
 </Project>

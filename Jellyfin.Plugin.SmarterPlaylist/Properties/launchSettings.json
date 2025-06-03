@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Jellyfin.Plugin.SmartPlaylist": {
+    "Jellyfin.Plugin.SmarterPlaylist": {
       "commandName": "Executable",
       "executablePath":
         "C:\\Users\\Rob\\source\\repos\\jellyfin\\Jellyfin.Server\\bin\\Debug\\netcoreapp3.1\\jellyfin.exe",

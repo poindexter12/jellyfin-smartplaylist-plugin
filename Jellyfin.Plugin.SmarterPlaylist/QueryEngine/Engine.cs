@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 
-namespace Jellyfin.Plugin.SmartPlaylist.QueryEngine
+namespace Jellyfin.Plugin.SmarterPlaylist.QueryEngine
 {
     // This is taken entirely from https://stackoverflow.com/questions/6488034/how-to-implement-a-rule-engine
     public class Engine

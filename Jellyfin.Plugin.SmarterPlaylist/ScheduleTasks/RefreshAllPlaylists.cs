@@ -15,7 +15,7 @@ using MediaBrowser.Model.Playlists;
 using MediaBrowser.Model.Tasks;
 using Microsoft.Extensions.Logging;
 
-namespace Jellyfin.Plugin.SmartPlaylist.ScheduleTasks
+namespace Jellyfin.Plugin.SmarterPlaylist.ScheduleTasks
 {
     public class RefreshAllPlaylists : IScheduledTask, IConfigurableScheduledTask
     {
@@ -25,7 +25,7 @@ namespace Jellyfin.Plugin.SmartPlaylist.ScheduleTasks
         private readonly ILibraryManager _libraryManager;
         private readonly ILogger _logger;
         private readonly IPlaylistManager _playlistManager;
-        private readonly ISmartPlaylistStore _plStore;
+        private readonly ISmarterPlaylistStore _plStore;
         private readonly IProviderManager _providerManager;
         private readonly IUserManager _userManager;
 
@@ -46,8 +46,8 @@ namespace Jellyfin.Plugin.SmartPlaylist.ScheduleTasks
             _providerManager = providerManager;
             _userManager = userManager;
 
-            ISmartPlaylistFileSystem plFileSystem = new SmartPlaylistFileSystem(serverApplicationPaths);
-            _plStore = new SmartPlaylistStore(plFileSystem);
+            ISmarterPlaylistFileSystem plFileSystem = new SmarterPlaylistFileSystem(serverApplicationPaths);
+            _plStore = new SmarterPlaylistStore(plFileSystem);
 
             _logger.LogInformation("Constructed Refresher ");
         }
@@ -56,8 +56,8 @@ namespace Jellyfin.Plugin.SmartPlaylist.ScheduleTasks
         public bool IsEnabled => true;
         public bool IsLogged => true;
         public string Key => nameof(RefreshAllPlaylists);
-        public string Name => "Refresh all SmartPlaylists";
-        public string Description => "Refresh all SmartPlaylists";
+        public string Name => "Refresh all SmarterPlaylists";
+        public string Description => "Refresh all SmarterPlaylists";
         public string Category => "Library";
 
 
@@ -76,12 +76,12 @@ namespace Jellyfin.Plugin.SmartPlaylist.ScheduleTasks
 
         public async Task ExecuteAsync(IProgress<double> progress, CancellationToken cancellationToken)
         {
-            var dtos = await _plStore.GetAllSmartPlaylistsAsync();
+            var dtos = await _plStore.GetAllSmarterPlaylistsAsync();
             foreach (var dto in dtos)
             {
-                var smartPlaylist = new SmartPlaylist(dto);
+                var SmarterPlaylist = new SmarterPlaylist(dto);
 
-                var user = _userManager.GetUserByName(smartPlaylist.User);
+                var user = _userManager.GetUserByName(SmarterPlaylist.User);
                 List<Playlist> p;
                 try
                 {
@@ -105,7 +105,7 @@ namespace Jellyfin.Plugin.SmartPlaylist.ScheduleTasks
                     p = playlists.Where(x => x.Id.ToString().Replace("-", "") == dto.Id).ToList();
                 }
 
-                var newItems = smartPlaylist.FilterPlaylistItems(GetAllUserMedia(user), _libraryManager, user);
+                var newItems = SmarterPlaylist.FilterPlaylistItems(GetAllUserMedia(user), _libraryManager, user);
 
                 var playlist = p.First();
                 var query = new InternalItemsQuery(user)
@@ -121,7 +121,7 @@ namespace Jellyfin.Plugin.SmartPlaylist.ScheduleTasks
             }
         }
 
-        private string CreateNewPlaylist(SmartPlaylistDto dto, User user)
+        private string CreateNewPlaylist(SmarterPlaylistDto dto, User user)
         {
             var req = new PlaylistCreationRequest
             {

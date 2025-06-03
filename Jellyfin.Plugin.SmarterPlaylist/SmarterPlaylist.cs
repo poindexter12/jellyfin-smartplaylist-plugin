@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using Jellyfin.Data.Entities;
-using Jellyfin.Plugin.SmartPlaylist.QueryEngine;
+using Jellyfin.Plugin.SmarterPlaylist.QueryEngine;
 using MediaBrowser.Controller.Entities;
 using MediaBrowser.Controller.Library;
 
-namespace Jellyfin.Plugin.SmartPlaylist
+namespace Jellyfin.Plugin.SmarterPlaylist
 {
-    public class SmartPlaylist
+    public class SmarterPlaylist
     {
-        public SmartPlaylist(SmartPlaylistDto dto)
+        public SmarterPlaylist(SmarterPlaylistDto dto)
         {
             Id = dto.Id;
             Name = dto.Name;

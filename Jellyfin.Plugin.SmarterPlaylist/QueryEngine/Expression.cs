@@ -1,4 +1,4 @@
-﻿namespace Jellyfin.Plugin.SmartPlaylist.QueryEngine
+﻿namespace Jellyfin.Plugin.SmarterPlaylist.QueryEngine
 {
     public class Expression(string memberName, string @operator, string targetValue)
     {
